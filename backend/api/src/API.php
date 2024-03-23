@@ -26,7 +26,7 @@ final class API {
         header('Access-Control-Allow-Credentials: true');    
 
         if ( $_SERVER['REQUEST_METHOD'] === 'OPTIONS' ) {
-            $this->responseCode('200');
+            $this->Controller->responseCode('200');
         }    
 
         // URL auslesen
