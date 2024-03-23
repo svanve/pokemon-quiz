@@ -1,0 +1,16 @@
+$font-fallback: 'Segoe UI', Tahoma, Geneva, 'Helvetica Neue', sans-serif;
+$font-fallback-headline: Georgia, 'Times New Roman', Times, serif;
+
+$font-headline: 'Roboto', $font-fallback-headline;
+$font-subheadline: 'Roboto', $font-fallback;
+$font-base: 'Roboto', $font-fallback;
+$font-menu: 'Roboto', $font-fallback;
+
+$font-size-base: 16px;
+$font-size-menu: 16px;
+$font-size-detail: 14px;
+$font-size-headline: 70px;
+$font-size-headline-small: 30px;
+$font-size-subheadline: 22px;
+$font-size-subsubheadline: 16px;
+$font-size-btn-cta: 26px;

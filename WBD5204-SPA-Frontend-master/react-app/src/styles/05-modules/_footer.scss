@@ -1,0 +1,22 @@
+.footer-wrapper {
+    background-color: $black;
+    footer { 
+        ul {
+            padding: 30px;
+        }
+
+        a {
+            color: $lightgrey;
+            transition: $easing-out;
+
+            &:hover {
+                color: $grey;
+            }
+        }
+
+        .copyright {
+            padding-bottom: 30px;
+        }
+
+    } 
+}

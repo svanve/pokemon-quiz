@@ -1,0 +1,147 @@
+.game-mode--challenge-question--div {
+    flex-grow: 1;
+    background: $primary;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    padding: 5px 10px;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.game-mode--challenge-question--container {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-mode--form--option {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $grey;
+    color: $white;
+    padding: 5px; 
+    font-size: $font-size-base;
+    margin-bottom: 5px;
+
+    &:hover {
+        background-color: $lightgrey;
+        color: $black;
+    }
+}
+
+.game-mode--form--select {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-mode--offset-layer {
+    height: 100vh;
+    width: 100vw;
+    background: $bg-color;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.game-mode--pokemon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        max-height: 35vh;
+    }
+}
+
+.game-mode--specs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    span {
+        text-align: center;
+    }
+}
+
+.game-mode--specs-container {
+    flex-grow: 1;
+    display: flex;
+}
+
+.game-mode--specs-pokemon {
+    font-size: $font-size-headline-small;
+    font-weight: 700;
+}
+
+.game-mode--specs-reward {
+    display: flex;
+    justify-content: center;
+    font-size: $font-size-headline-small;
+    font-weight: 700;
+    
+    span {
+        margin-right: 5px;
+    }
+
+    &:last-child {
+        color: gold;
+    }
+}
+
+.game-mode--time-bar--actual-time {
+    position: absolute;
+    background-color: $quartenary;
+    z-index: 10000;
+    width: 80%;
+    height: 100%;
+    border-radius: $border-radius;
+}
+
+.game-mode--time-bar--icon {
+    font-size: $font-size-headline-small;
+    font-weight: 700;
+
+    @media (max-width: 576px) {
+        font-size: $font-size-subheadline;
+    }
+}
+
+.game-mode--time-bar--max {
+    background: $white;
+    position: relative;
+    border-radius: $border-radius;
+}
+
+.game-mode--time-container {
+    flex-grow: 0;
+    margin-bottom: 2vh;
+}
+
+.game-mode--title {
+    flex-grow: 0;
+    font-size: $font-size-headline-small;
+
+    @media (max-width: 576px) {
+        font-size: $font-size-subheadline;
+    }
+}
+
+.game-mode--wrapper {
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 20px;
+}

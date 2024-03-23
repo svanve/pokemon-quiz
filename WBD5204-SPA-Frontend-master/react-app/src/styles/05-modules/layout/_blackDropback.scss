@@ -1,0 +1,10 @@
+.dropback {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: $black;
+    opacity: .6;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+}

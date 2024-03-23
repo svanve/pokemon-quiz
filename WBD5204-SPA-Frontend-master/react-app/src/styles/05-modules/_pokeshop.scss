@@ -1,0 +1,23 @@
+.pokeshop-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.pokeshop-info-div {
+    i {
+        font-size: $font-size-headline;
+        margin-bottom: 20px;
+    }
+}
+
+.pokeshop-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokeshop-main {
+    height: 80%;
+}

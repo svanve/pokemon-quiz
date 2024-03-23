@@ -1,0 +1,139 @@
+.btn {
+    width: 100%;
+    border: none;
+    font-size: $font-size-btn-cta;
+    border-radius: $border-radius;
+    white-space: normal;
+    word-break: break-word;
+    box-shadow: 0px 1px 10px rgb(0 0 0 / 30%);
+
+    a {
+        color: $white;
+    }
+}
+        
+.btn-primary {
+    background-color: $primary;
+    transition: $easing-in-out;
+
+    &:hover {
+        background-color: $primary-hover;
+        color: $primary-text-hover;
+    }
+    
+    &:active {
+        background-color: $primary-hover;
+        box-shadow: 0 0 0 0.25rem $white;
+    }
+
+    &:focus {
+        background-color: $primary-click;
+        box-shadow: 0 0 0 0.25rem $highlight;
+    }
+}
+
+.btn-secondary {
+    background-color: $secondary;
+    transition: $easing-in-out;
+
+    &:hover {
+        background-color: $secondary-hover;
+    }
+    
+    &:active {
+        background-color: $secondary-hover;
+        box-shadow: 0 0 0 0.25rem $white;
+    }
+
+    &:focus {
+        background-color: $secondary-click;
+        box-shadow: 0 0 0 0.25rem $highlight;
+    }
+}
+
+.btn-tertiary {
+    background-color: $tertiary;
+    transition: $easing-in-out;
+
+    &:hover {
+        background-color: $tertiary-hover;
+    }
+    
+    &:active {
+        background-color: $tertiary-hover;
+        box-shadow: 0 0 0 0.25rem $white;
+    }
+
+    &:focus {
+        background-color: $tertiary-click;
+        box-shadow: 0 0 0 0.25rem $highlight;
+    }
+}
+
+.btn-primary-blocked {
+    background-color: $primary-disabled;
+}
+
+.btn-secondary-blocked {
+    background-color: $secondary-disabled;
+}
+
+.btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+
+.button-close {
+    color: white;
+    font-size: 52px;
+    opacity: 1;
+    transition: $easing-in-out;
+    width: 52px;
+    display: flex;
+    justify-content: center;
+    border-radius: $border-radius;
+
+    &:hover {
+        background-color: $grey;
+    }
+}
+
+.cancel-btn {
+    background-color: $lightgrey;
+
+    &:hover {
+        color: $white;
+        background-color: $grey !important;
+    }
+}
+
+.delete-btn {
+    margin-bottom: 5px;
+
+    &:hover {
+        background-color: $danger !important;
+    }
+}
+
+.destroy-btn {
+    background-color: $danger;
+
+    &:hover {
+        background-color: $grey;
+    }
+}
+
+.edit-btn {
+    color: $black;
+
+    &:hover {
+        color: $white;
+    }
+}
+
+.start-btn {
+    height: 72px;
+}

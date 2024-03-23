@@ -1,0 +1,21 @@
+.modal {
+    transform: translate(-50%);
+    top: 30%;
+    left: 50%;
+}
+
+.modal-body {
+    color: $lightgrey;
+}
+
+.modal-content {
+    background-color: $darkgrey;
+}
+
+.modal-footer {
+    border-top-color: $grey;
+}
+
+.modal-header {
+    border-bottom-color: $grey;
+}

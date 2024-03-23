@@ -1,0 +1,109 @@
+.card {
+    height: 98.5%;
+    margin-top: 8px;
+    border-radius: $border-radius;
+    border-color: $darkgrey;
+    background-color: $darkgrey;
+    margin: 1%;
+}
+
+.card-body {
+    background-color: $darkgrey;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 2px 7px rgb(0 0 0 / 60%);
+}
+
+.card-body--wrap {
+    flex: 1 1 auto;
+    max-height: 268px;
+}
+
+.card-text {
+    font-size: $font-size-detail;
+    color: $detail-color;
+}
+
+.card-title {
+    font-size: $font-size-subsubheadline;
+    font-weight: normal;
+}
+
+.challenge-spec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.challenge-spec::before {
+    content: "";
+    background: rgba(255,255,255,.2);
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    height: 50%;
+    width: 1px;
+}
+
+.challenge-spec--author {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+
+    span {
+        align-self: center;
+        color: $highlight;
+        font-size: 14px;
+    }
+
+    span:first-child {
+        margin-right: 5px;
+    }
+}
+
+.link-btn {
+    width: 100%;
+}
+
+.link-btn--div {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    padding: 0 0 7px 0;
+    
+    i, 
+    span {
+        font-size: $font-size-base;
+    }
+}
+
+.poke-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: inherit;
+}
+
+.poke-view--image {
+    max-height: inherit;
+    svg {
+        max-width: 150px;
+    }
+}
+
+.poke-view--name {
+    span {
+        color: white;
+    }
+}
+
+.poke-view--reward {
+    span {
+        font-size: $font-size-detail;
+        color: $lightgrey;
+    }
+}

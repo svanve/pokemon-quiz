@@ -1,0 +1,51 @@
+#m-register {
+
+    overflow: scroll;
+    height: 100vh;
+
+    h1 {
+        margin-top: 40px    ;
+        transition: $easing-in-out;
+
+        @media screen and (max-width: 576px) {
+            font-size: 40px;
+        }
+    }
+}
+
+.back-icon-div {
+    display: flex;
+    align-items: center;
+    padding-right: 5%;
+    margin-top: 3%;
+    transition: $easing-in-out;
+
+    &:hover svg>path {
+        fill: #297e6b;
+    }
+}
+
+.start-nav {
+    margin-bottom: 3%;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-check {
+    height: 62px;
+    padding-left: 1%;
+    display: flex;
+    align-items: center;
+
+    label {
+        cursor: pointer;
+    }
+}
+
+#agb {
+    height: 30px !important;
+    width: 30px;
+    margin: 0 1% 0 1%;
+}

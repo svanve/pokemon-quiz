@@ -1,0 +1,117 @@
+// allgemeine sachen wie welche font haben Überschriften, welche Eogenschaften haben Links? etc.
+:root,
+body {
+    scroll-behavior: unset;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: $bg-color;
+    font-family: $font-base;
+    font-size: $font-size-base;
+
+    overflow-x: hidden;
+}
+
+html, 
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1 {
+    font-family: $font-headline;
+    font-size: $font-size-headline;
+    margin-bottom: 1.5rem;
+    color: $headline-color;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0;
+
+    @include media-breakpoint-up(md) {
+        justify-content: start;
+    }
+}
+
+h2 {
+    font-family: $font-headline;
+    font-size: $font-size-subheadline;
+    margin-bottom: 1.5rem;
+    color: $headline-color;
+}
+
+h3 {
+  font-family: $font-subheadline;
+  font-size: $font-size-subsubheadline;
+  color: $subheadline-color;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: $highlight;
+    display: inline-block;
+    transition: color 300ms ease-out;
+
+    &:hover {
+        color: $highlight-hover;
+    }
+}
+
+input, select {
+    height: 62px;
+    font-size: 18px !important;
+}
+
+select {
+    &:first-child {
+        font-weight: 800;
+    }
+}
+
+option {
+    font-size: 18px;
+    font-family: $font-base;
+    word-break: break-all;
+}
+
+.start-container {
+    min-height: inherit;
+    display: inherit;
+    flex-direction: inherit;
+    justify-content: space-between;
+    flex: 1 0 auto;
+    height: 100%;
+    width: 90%;
+}
+
+label {
+    color: $lightgrey;
+}
+

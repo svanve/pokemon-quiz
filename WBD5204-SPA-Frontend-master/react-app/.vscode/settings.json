@@ -1,0 +1,9 @@
+{
+  // "workbench.iconTheme": "vscode-icons",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#5b2b61",
+    "titleBar.activeForeground": "#5b2b61",
+    "titleBar.inactiveBackground": "#9a74a0",
+    "titleBar.inactiveForeground": "#9a74a0"
+  }
+}

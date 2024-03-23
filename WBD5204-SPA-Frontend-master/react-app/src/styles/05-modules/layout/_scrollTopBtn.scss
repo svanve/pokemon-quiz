@@ -1,0 +1,34 @@
+.scrollTopBtn {
+    position: absolute;
+    height: 47px;
+    width: 47px;
+    border-radius: 50%;
+    bottom: 20%;
+    right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    cursor: pointer;
+    background-color: $black;
+
+    @media (max-width: 576px) {
+        right: 5%;
+    }
+
+    i {
+        width: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        cursor: pointer;
+        color: $highlight;
+        transition: all $easing-in-out;
+
+        &:hover {
+            color: $highlight-hover;
+            font-size: 60px;
+        }
+    }
+}

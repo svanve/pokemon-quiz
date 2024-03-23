@@ -1,0 +1,132 @@
+.active {
+    background-color: $hover-black;
+
+    i, span {
+        color: $highlight !important;
+    }
+}
+
+.content {
+    min-height: 100vh;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    // background-color: $grey;
+}
+
+.content-view {
+    height: 100%;
+    background: $grey;
+    padding: 0 2% 0 2%;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.header {
+    flex: 0 0 72px;
+    width: 100%;
+}
+
+.header-button--wrapper {
+    align-items: center;
+    display: flex;
+}
+
+.header-button {
+    height: 52px;
+    width: 52px;
+    align-self: center;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: $easing-in-out;
+
+    &:hover {
+        background-color: $grey;
+    }
+}
+
+.header-button--create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+
+    i {
+        font-size: 33px;
+        color: $lightgrey;
+    }
+}
+
+.headerbar {
+    width: 100%;
+    background-color: $black;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2% 0 2%;
+
+    h1 {
+        font-size: 30px;
+        line-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+main {
+    flex: auto;
+}
+
+.menubar {
+    background-color: $black;
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    height: 88px;
+    width: 100%;
+    display: flex;
+}
+
+.menu-option {
+    flex: 1 1 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2% 0 2%;
+    cursor: pointer;
+    transition: $easing-in-out;
+    overflow: hidden;
+
+    &:hover {
+        background-color: $hover-black;
+
+        .menu-option--icon,
+        .menu-option--label {
+            color: $highlight;
+        }
+    }
+
+    i {
+        font-size: 20px;
+    }
+
+    .menu-option--icon,
+    .menu-option--label  {
+        text-align: center;
+        color: $lightgrey;
+    }
+
+    .menu-option--label {
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+.page-wrapper {
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: $grey;
+    scroll-behavior: smooth;
+}

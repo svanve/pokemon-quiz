@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="78px" height="79px" viewBox="0 0 78 79" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>PokéBall</title>
+    <defs>
+        <filter x="-20.0%" y="-20.0%" width="140.0%" height="140.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M29.53125,59.4474437 C46.0997925,59.4474437 59.3746336,46.5159862 59.3746336,29.9474437 C59.3746336,13.3789012 46.0997925,0 29.53125,0 C12.9627075,0 -3.55271368e-15,13.3789012 -3.55271368e-15,29.9474437 C-3.55271368e-15,46.5159862 12.9627075,59.4474437 29.53125,59.4474437 Z" id="path-2"></path>
+    </defs>
+    <g id="PokeGoals" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Start-1" transform="translate(-22.000000, -372.000000)">
+            <g id="USP-group" transform="translate(28.000000, 246.000000)">
+                <g id="Group-5" transform="translate(3.000000, 132.500000)">
+                    <g id="PokéBall" filter="url(#filter-1)" transform="translate(-0.000000, 3.000000)">
+                        <g>
+                            <g id="Oval-rot" transform="translate(0.156616, 0.500000)">
+                                <mask id="mask-3" fill="white">
+                                    <use xlink:href="#path-2"></use>
+                                </mask>
+                                <use id="Mask-dunkelrot" fill="#CC0010" transform="translate(29.687317, 29.723722) rotate(180.000000) translate(-29.687317, -29.723722) " xlink:href="#path-2"></use>
+                                <path d="M31.732621,52.4268293 C46.0112023,52.4268293 58.3179869,41.2885474 58.3179869,27.5487805 C58.3179869,13.8090135 46.0112023,2.67073171 31.732621,2.67073171 C17.4540397,2.67073171 10.3311885,13.8090135 10.3311885,27.5487805 C10.3311885,31.5589093 11.4355631,34.7673871 12.8556611,37.8344271 C14.3916601,41.1517829 16.034916,43.8096435 19.2896056,46.3855429 C23.3299992,49.5832818 26.128938,52.4268293 31.732621,52.4268293 Z" fill="#E50012" mask="url(#mask-3)" transform="translate(34.324588, 27.548780) rotate(180.000000) translate(-34.324588, -27.548780) "></path>
+                            </g>
+                            <path d="M60,57.5481661 C60,41.0586082 47.0685425,27.5481661 30.5,27.5481661 C13.9314575,27.5481661 0.5,40.9798706 0.5,57.5481661 C0.5,62.010976 15.5,57.4241992 30.5,57.4241992 C45.5,57.4241992 60,61.7010587 60,57.5481661 Z" id="Oval-weiss" fill="#FFFFFF" transform="translate(30.250000, 43.524083) rotate(180.000000) translate(-30.250000, -43.524083) "></path>
+                            <circle id="Oval-border" stroke="#000000" stroke-width="2" transform="translate(30.000000, 30.000000) rotate(180.000000) translate(-30.000000, -30.000000) " cx="30" cy="30" r="29"></circle>
+                            <g id="Gurt" transform="translate(0.495868, 22.561983)">
+                                <rect id="belt-rectangle" fill="#000000" x="0" y="4.95867769" width="58.7603306" height="4.95867769"></rect>
+                                <rect id="black-border" fill="#000000" x="22.6859504" y="0" width="14.8760331" height="14.8760331" rx="7.43801653"></rect>
+                                <rect id="White-circle" fill="#FFFFFF" x="25.5371901" y="2.72727273" width="9.17355372" height="9.17355372" rx="4.58677686"></rect>
+                                <rect id="Shadow" stroke="#DCDCDC" stroke-width="2" x="26.5371901" y="3.72727273" width="7.17355372" height="7.17355372" rx="3.58677686"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
