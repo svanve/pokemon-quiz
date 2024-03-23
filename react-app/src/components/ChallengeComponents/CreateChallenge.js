@@ -65,7 +65,6 @@ const CreateChallenge = ({mode, setModal, values}) => {
         // getting and setting values of the clicked challenge in order to let user edit them
         if ( mode === 'edit' ) {
 
-            console.log(setScrollToTop);
             setScrollToTop(true);
 
             if ( pokemons !== undefined && questions !== undefined ) {
@@ -110,13 +109,7 @@ const CreateChallenge = ({mode, setModal, values}) => {
             .then( (dt) => { 
                 
             } )
-            .catch( err => {
-                const errorsArray = Object.values(err);
-
-                const errorsMerged = [].concat.apply([], errorsArray);
-
-                console.log(errorsMerged);
-            })        
+            .catch( err => {})        
     }
 
 
