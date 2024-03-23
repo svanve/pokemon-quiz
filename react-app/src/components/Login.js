@@ -7,7 +7,7 @@ import { Context } from '../helpers/Context';
 const Login = (props) => {
     // const {} = props;
 
-    const { setLoggedIn, loggedIn } = useContext( Context);
+    const { setLoggedIn } = useContext( Context);
     const navigate = useNavigate();
     const [ error, setError ] = useState('');
 
@@ -31,7 +31,6 @@ const Login = (props) => {
         })
 
         const resData = await response.json();
-        
 
         if ( resData.success ) {
             localStorage.setItem( 'jwt', 'AUTHORIZE ' + resData.jwt ); 
