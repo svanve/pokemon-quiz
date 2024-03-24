@@ -5,7 +5,7 @@ import { Context } from '../../helpers/Context';
 
 const CreateChallenge = ({mode, setModal, values}) => {
 
-    const { setScrollToTop } = useContext( Context );
+    const { setScrollToTop, setCreate, create, setEdit, edit } = useContext( Context );
 
     const [ questions, setQuestions ] = useState([]);
     const [ pokemons, setPokemons ] = useState([]);    
@@ -83,7 +83,7 @@ const CreateChallenge = ({mode, setModal, values}) => {
             setTitle(values.title)
             setDescription(values.description)
         }
-    }, [ pokemons, questions ] )
+    }, [ pokemons, questions, create, mode, setScrollToTop, values.description, values.pokemon, values.question, values.title ] )
 
     
     function handleSubmit( e ) {
@@ -115,8 +115,6 @@ const CreateChallenge = ({mode, setModal, values}) => {
 
     function handleEdit(e) {
         e.preventDefault();
-        
-
 
         const token = localStorage.getItem( 'jwt' );
         const formData = new FormData();
@@ -134,7 +132,9 @@ const CreateChallenge = ({mode, setModal, values}) => {
             }
         )
         .then( (res) => res.json() )
-        .then( () => setModal(false))
+        .then( () => {
+            setEdit(false);
+        })
         .catch( (err) => console.log(err))
     }
     
