@@ -5,7 +5,7 @@ import { Context } from '../../helpers/Context';
 
 const CreateChallenge = ({mode, setModal, values}) => {
 
-    const { setScrollToTop, setCreate, create, setEdit, edit } = useContext( Context );
+    const { setScrollToTop, setCreate, create, setEdit } = useContext( Context );
 
     const [ questions, setQuestions ] = useState([]);
     const [ pokemons, setPokemons ] = useState([]);    
@@ -14,7 +14,6 @@ const CreateChallenge = ({mode, setModal, values}) => {
     const [ description, setDescription ] = useState('');
     const [ pokemon_id, setPokemon_id ] = useState(1);
     const [ question_id, setQuestion_id ] = useState(1);
-    const navigate = useNavigate();
 
     const data = {
         title: title,
@@ -83,7 +82,7 @@ const CreateChallenge = ({mode, setModal, values}) => {
             setTitle(values.title)
             setDescription(values.description)
         }
-    }, [ pokemons, questions, create, mode, setScrollToTop, values.description, values.pokemon, values.question, values.title ] )
+    }, [] )
 
     
     function handleSubmit( e ) {
@@ -97,19 +96,25 @@ const CreateChallenge = ({mode, setModal, values}) => {
         for (const key in data) {
             formData.append( key, data[key] )
         }
-
+        
         fetch(`${process.env.REACT_APP_BACKEND_URI}/api/challenges/write`, {
             method: 'POST',
             headers: {
-                'authorization': token
+                'authorization': token,
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
             },
             body: formData
         })
-            .then( res => res.json())
-            .then( (dt) => { 
-                
-            } )
-            .catch( err => {})        
+        .then( res => {
+            res.json();
+        })
+        .then( (dt) => {
+            setCreate(false);
+        })
+        .catch( err => {
+            console.log(err);
+        })        
     }
 
 
