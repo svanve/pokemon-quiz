@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Header from '../LayoutComponents/Header';
 import CreateChallenge from './CreateChallenge';
@@ -10,11 +10,12 @@ import GameMode from './GameMode';
 import BlackDropback from '../LayoutComponents/BlackDropback';
 
 import { Context } from '../../helpers/Context'; 
+import ErrorModal from '../LayoutComponents/ErrorModal';
 
 const Challenges = (props) => {
     // const {} = props;
 
-    const { create, edit, setEdit, topBtn, scrollToTop, setScrollToTop, handleTopBtn } = useContext(Context);
+    const { create, edit, setEdit, topBtn, scrollToTop, setScrollToTop, handleTopBtn, setError, error} = useContext(Context);
     const [ sort, setSort ] = useState( 'id' );
     const [ filter, setFilter ] = useState( 'getCommunity' );
     const [ data, setData ] = useState( [] );
@@ -23,7 +24,7 @@ const Challenges = (props) => {
     const [ gameMode, setGameMode ] = useState(false);
     const [ gameData, setGameData ] = useState({});
     const [ time, setTime ] = useState(false);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     
     useEffect( () => {
@@ -32,28 +33,26 @@ const Challenges = (props) => {
         const token = localStorage.getItem( 'jwt' ); 
         
         const fetchChallenges = async () => {
-            const fetchedData = await fetch( `${process.env.REACT_APP_BACKEND_URI}/api/challenges/${filter}/${sort}`, {
-                headers: {
-                    'authorization': token
-                }
-            })
 
-            const dt = await fetchedData.json();
-            
-            try {
-                const dataArr = Object.values(dt.result);
-                setData(dataArr);
-                console.log(dataArr);
-                console.log('fetchChallenges:', fetchedData.status, fetchedData.statusText);
-            } catch (err) {
-                console.error('Genuine Error Msg:', dt);
-                console.error('fetchChallenges:', fetchedData.status, fetchedData.statusText);
+            return fetch( 
+                `${process.env.REACT_APP_BACKEND_URI}/api/challenges/${filter}/${sort}`, 
+                { headers: {'authorization': token} }
+            )
+                .then(response => response.json())
+                .then(data => {
+                    if(data.errors) {
+                        setError(data.errors);
+                    } else {
+                        const dataArr = Object.values(data.result);
+                        setData(dataArr);
+                    }
+                })
             }
-        }
-
-        fetchChallenges();
+            
         
-    }, [ sort, filter ] );
+        fetchChallenges();
+
+    }, [ sort, filter, setError, navigate ] );
 
     useEffect ( () => {
 
@@ -105,6 +104,8 @@ const Challenges = (props) => {
                         {modal ? <> <DeleteModal setModal={setModal} setDeleteData={setDeleteData} values={deleteData}/><BlackDropback/> </> : <></>}
 
                         {gameMode ? <GameMode gameData={gameData} time={time} setTime={setTime} setGameMode={setGameMode} /> : <></>}
+
+                        {error.jwt ? <> <ErrorModal errors={error}/><BlackDropback/> </> : <></>}
 
                         <div className="filterbar mb-2">
                             <div className="filter--sort-wrapper me-1" onClick={(e) => display(e)}>
