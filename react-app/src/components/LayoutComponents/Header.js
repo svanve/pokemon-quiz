@@ -9,7 +9,7 @@ import { logout } from '../../helpers/Helpers';
 
 const Header = ({pageTitle}) => {
 
-    const { create, setCreate, edit, setEdit, setLoggedIn, loggedIn } = useContext(Context);
+    const { create, setCreate, edit, setEdit, setLoggedIn } = useContext(Context);
     const navigate = useNavigate();
 
     return (
