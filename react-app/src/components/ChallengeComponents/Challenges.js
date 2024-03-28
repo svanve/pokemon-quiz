@@ -25,23 +25,33 @@ const Challenges = (props) => {
     const [ time, setTime ] = useState(false);
     // const navigate = useNavigate();
 
+    
     useEffect( () => {
-
-        // get Challenges
         
+        // get Challenges
         const token = localStorage.getItem( 'jwt' ); 
+        
+        const fetchChallenges = async () => {
+            const fetchedData = await fetch( `${process.env.REACT_APP_BACKEND_URI}/api/challenges/${filter}/${sort}`, {
+                headers: {
+                    'authorization': token
+                }
+            })
 
-        fetch( `${process.env.REACT_APP_BACKEND_URI}/api/challenges/${filter}/${sort}`, {
-            headers: {
-                'authorization': token
-            }
-        })
-            .then(res => res.json())
-            .then((dt) => {
+            const dt = await fetchedData.json();
+            
+            try {
                 const dataArr = Object.values(dt.result);
                 setData(dataArr);
-            })
-            .catch(err=> console.log(err));
+                console.log(dataArr);
+                console.log('fetchChallenges:', fetchedData.status, fetchedData.statusText);
+            } catch (err) {
+                console.error('Genuine Error Msg:', dt);
+                console.error('fetchChallenges:', fetchedData.status, fetchedData.statusText);
+            }
+        }
+
+        fetchChallenges();
         
     }, [ sort, filter ] );
 
@@ -59,9 +69,9 @@ const Challenges = (props) => {
         e.currentTarget.children[1].classList.toggle('display-dropdown');
     }
 
-    // FREMDCODE StackOverflow:
+    // CODE StackOverflow:
     function shuffle(array) {
-        let currentIndex = array.length,  randomIndex;
+        let currentIndex = array.length, randomIndex;
         
         // While there remain elements to shuffle...
         while (currentIndex !== 0) {
