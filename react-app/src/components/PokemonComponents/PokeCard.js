@@ -3,9 +3,7 @@ import * as DOMPurify from 'dompurify';
 
 const PokeCard = (props) => {
 
-    const sanitizedSvg = () => ({
-        __html: DOMPurify.sanitize(props.svg)
-    })
+    const sanitizedSvg = DOMPurify.sanitize(props.svg);
 
     return (
     <>
@@ -14,7 +12,7 @@ const PokeCard = (props) => {
                 <div className="card-body pokecard-body">
 
                     <div className="h3 card-title mb-2">{props.pokemon}</div>
-                    <div className="pokecard-image" dangerouslySetInnerHTML={sanitizedSvg}></div>
+                    <div className="pokecard-image" dangerouslySetInnerHTML={{ __html: sanitizedSvg }}></div>
                     <div className="pokecard-specs">
                         <div className="pokecard--type pb-2">
                             <span>Pokedex Nr.

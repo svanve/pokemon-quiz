@@ -2,12 +2,15 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../helpers/Context';
+import DOMPurify from 'dompurify';
 
 
 const Card = (props) => {
 
     const { loggedIn } = useContext(Context);
     const navigate = useNavigate();
+
+    const sanitizedSvg = DOMPurify.sanitize(props.svg);
 
     const imgStyle = {
         height: '30px',
@@ -26,7 +29,7 @@ const Card = (props) => {
                 <div className="card-body">
                     <div className="card-body--wrap row mb-2">
                         <div className="poke-view col-5">
-                            <div className="poke-view--image" dangerouslySetInnerHTML={{__html: props.svg}}>
+                            <div className="poke-view--image" dangerouslySetInnerHTML={{ __html: sanitizedSvg }}>
                             </div>
                             <div className="poke-view--name">
                                 <span>{props.pokemon}</span>

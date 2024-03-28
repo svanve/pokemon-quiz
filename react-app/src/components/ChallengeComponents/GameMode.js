@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import WinStateModal from './WinStateModal';
 import BlackDropback from '../LayoutComponents/BlackDropback';
-import * as DOMpurify from 'dompurify';
+import DOMPurify from 'dompurify';
 
 const GameMode = ({gameData, time, setTime, setGameMode}) => {
 
     const [ winModal, setWinModal ] = useState(false);
     const [ winState, setWinState ] = useState([]);
     const [ barWidth, setBarWidth ] = useState(100);
+
+    const sanitizedSvg = DOMPurify.sanitize(gameData.svg);
 
     function checkAnswer(e) {
 
@@ -51,7 +53,7 @@ const GameMode = ({gameData, time, setTime, setGameMode}) => {
                         {gameData.title}
                     </div>
                     <div className="game-mode--specs-container col-11">
-                        <div className="game-mode--pokemon col-7" dangerouslySetInnerHTML={DOMpurify.sanitize({__html:gameData.svg})}></div>
+                        <div className="game-mode--pokemon col-7" dangerouslySetInnerHTML={{ __html: sanitizedSvg }}></div>
                         <div className="game-mode--specs col-5">
                             <span className="game-mode--specs-pokemon">
                                 {gameData.pokemon}
