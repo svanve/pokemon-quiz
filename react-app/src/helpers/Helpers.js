@@ -6,7 +6,6 @@ export function logout() {
         method: 'PUT'
     })
         .then( dt => {
-            console.log('logout successful');
             return true;
         })
         .catch( (err) => console.log(err) )
