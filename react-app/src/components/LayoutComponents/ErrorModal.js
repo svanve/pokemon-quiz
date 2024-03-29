@@ -1,4 +1,4 @@
-import { React, useContext } from 'react';
+import { React, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../helpers/Context';
@@ -6,15 +6,17 @@ import { logout } from '../../helpers/Helpers';
 
 const ErrorModal = (props) => {
 
-    const { setError, setLoggedIn } = useContext(Context);
+    const { setError, setLoggedIn, loggedIn } = useContext(Context);
     const navigate = useNavigate();
 
-    try {
-        logout();
-        setLoggedIn(false);
-    } catch (error) {
-        console.error('Beim Logout im Error Modal ist etwas schiefgelaufen.');
-    }
+    useEffect( () => {
+        try {
+            logout();
+            setLoggedIn(false);
+        } catch (error) {
+            console.error('Beim Logout im Error Modal ist etwas schiefgelaufen.');
+        }
+    }, [ setLoggedIn, loggedIn ])
 
     return (
         <>
