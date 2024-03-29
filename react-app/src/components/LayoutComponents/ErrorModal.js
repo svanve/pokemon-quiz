@@ -6,10 +6,15 @@ import { logout } from '../../helpers/Helpers';
 
 const ErrorModal = (props) => {
 
-    const { setError } = useContext(Context);
+    const { setError, setLoggedIn } = useContext(Context);
     const navigate = useNavigate();
 
-    logout()
+    try {
+        logout();
+        setLoggedIn(false);
+    } catch (error) {
+        console.error('Beim Logout im Error Modal ist etwas schiefgelaufen.');
+    }
 
     return (
         <>
@@ -21,12 +26,12 @@ const ErrorModal = (props) => {
                 </div>
                 <div className="modal-body">
                 {props.errors.jwt
-                        ?   (logout(), <p className="modal-title ">Du bist nicht angemeldet. Melde dich erneut an.</p>)
+                        ?   <p className="modal-title ">Du bist nicht angemeldet. Melde dich erneut an.</p>
                         :   <>Ein Fehler ist aufgetreten.</>
                     } 
                 </div>
                 <div className="modal-footer">
-                        <button className="win-state-modal--btn btn btn-primary w-100" onClick = {() => {navigate('/login'); setError({});}}>
+                        <button className="btn btn-primary w-100" onClick = {() => {navigate('/login'); setError({});}}>
                             <i className="fas fa-undo-alt me-2"></i>
                             <span className="">Zum Login</span>
                         </button>
