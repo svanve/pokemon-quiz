@@ -98,9 +98,7 @@ const CreateChallenge = ({mode, setModal, values}) => {
         fetch(`${process.env.REACT_APP_BACKEND_URI}/api/challenges/write`, {
             method: 'POST',
             headers: {
-                'authorization': token,
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
+                'authorization': token
             },
             body: formData
         })
