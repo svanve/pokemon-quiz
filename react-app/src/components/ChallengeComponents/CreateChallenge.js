@@ -88,10 +88,8 @@ const CreateChallenge = ({mode, setModal, values}) => {
     function handleCreate( e ) {
         e.preventDefault();
 
-        
         const token = localStorage.getItem( 'jwt' );
         const formData = new FormData();
-        
         
         for (const key in data) {
             formData.append( key, data[key] )
