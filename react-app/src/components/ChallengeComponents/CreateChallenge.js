@@ -82,7 +82,7 @@ const CreateChallenge = ({mode, setModal, values}) => {
             setTitle(values.title)
             setDescription(values.description)
         }
-    }, [ mode, pokemons, questions, setScrollToTop, values.description, values.pokemon, values.question, values.title ] )
+    }, [] )
 
     
     function handleCreate( e ) {
@@ -98,7 +98,9 @@ const CreateChallenge = ({mode, setModal, values}) => {
         fetch(`${process.env.REACT_APP_BACKEND_URI}/api/challenges/write`, {
             method: 'POST',
             headers: {
-                'authorization': token
+                'authorization': token,
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
             },
             body: formData
         })
@@ -123,6 +125,8 @@ const CreateChallenge = ({mode, setModal, values}) => {
         for (const key in data) {
             formData.append( key, data[key] )
         }
+
+        console.log(formData);
 
         fetch( `${process.env.REACT_APP_BACKEND_URI}/api/challenges/update/${values.cid}`, {
                 method: 'PUT',
