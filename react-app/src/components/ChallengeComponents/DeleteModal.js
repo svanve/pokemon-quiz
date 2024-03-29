@@ -14,9 +14,9 @@ const DeleteModal = (props) => {
         })
             .then(res => res.json())
             .then(dt => {
-                // success message would be here
+                // todo: if dt.error: ErrorModal
             })
-            .catch(err => console.log(err, 'FAIL'))
+            .catch(err => console.log(err, 'Delete failed'))
     }
 
     return (
@@ -25,11 +25,11 @@ const DeleteModal = (props) => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Challenge löschen?</h5>
+                        <h5 className="modal-title text-white">Challenge löschen?</h5>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => props.setModal(false)}></button>
                     </div>
                     <div className="modal-body">
-                        <p>Bist du sicher, dass du die Challenge mit dem Titel <b><span bold>{props.values.title}</span></b> löschen möchtest?</p>
+                        <p>Bist du sicher, dass du die Challenge mit dem Titel <b><span>{props.values.title}</span></b> löschen möchtest?</p>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="link-btn--div btn btn-tertiary cancel-btn" data-bs-dismiss="modal" onClick={() => props.setModal(false)}>
