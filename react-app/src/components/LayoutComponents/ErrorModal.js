@@ -2,11 +2,14 @@ import { React, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../helpers/Context';
+import { logout } from '../../helpers/Helpers';
 
 const ErrorModal = (props) => {
 
     const { setError } = useContext(Context);
     const navigate = useNavigate();
+
+    logout()
 
     return (
         <>
@@ -18,7 +21,7 @@ const ErrorModal = (props) => {
                 </div>
                 <div className="modal-body">
                 {props.errors.jwt
-                        ?   <p className="modal-title ">Session Timeout: Deine Sitzung ist abgelaufen. Melde dich erneut an.</p>
+                        ?   (logout(), <p className="modal-title ">Du bist nicht angemeldet. Melde dich erneut an.</p>)
                         :   <>Ein Fehler ist aufgetreten.</>
                     } 
                 </div>
