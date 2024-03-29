@@ -82,10 +82,10 @@ const CreateChallenge = ({mode, setModal, values}) => {
             setTitle(values.title)
             setDescription(values.description)
         }
-    }, [] )
+    }, [ mode, pokemons, questions, setScrollToTop, values.description, values.pokemon, values.question, values.title ] )
 
     
-    function handleSubmit( e ) {
+    function handleCreate( e ) {
         e.preventDefault();
 
         
@@ -150,7 +150,7 @@ const CreateChallenge = ({mode, setModal, values}) => {
             <div id="create-form-wrapper">
                 <form id="create-form" noValidate onSubmit={(e) => {
                         if (mode === 'create') {
-                            handleSubmit(e);
+                            handleCreate(e);
                         } else if (mode === 'edit') {
                             handleEdit(e);
                         }
