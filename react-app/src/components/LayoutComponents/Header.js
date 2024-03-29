@@ -26,10 +26,13 @@ const Header = ({pageTitle}) => {
                                         <PlusIcon />
                                     </div>
                                     <div className="header-button header-button--create" onClick={() => {
-                                            if( logout ) {
+                                            try {
+                                                logout();
                                                 setLoggedIn(false);
                                                 navigate('/start');
-                                            } 
+                                            } catch (error) {
+                                                console.error('Etwas beim Logout ging schief.');
+                                            }
                                     }}>
                                         <i className="fas fa-sign-out-alt" title="Logout"></i>
                                     </div>
