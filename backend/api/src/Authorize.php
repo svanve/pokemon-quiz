@@ -41,7 +41,7 @@ abstract class Authorize {
                 || $token[ 'nbf' ] > self::createCurrentTimestamp()
                 || $token[ 'exp' ] < self::createCurrentTimestamp()
             ) {
-                $errors[ 'jwt' ][] = 'Token invalide oder abgelaufen.';
+                $errors[ 'jwt' ][] = 'Auhtorization Token invalide oder abgelaufen. Bitte neu anmelden.';
                 return FALSE;
             }
 
