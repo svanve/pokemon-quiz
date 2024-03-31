@@ -289,8 +289,6 @@ final class Challenges extends AbstractModel {
 
     public function write( string $user_id, array &$errors = [] ) : bool {
 
-        var_dump($_POST);
-
         //get input
         /** @var ?string $input_pokemon_id */
         $input_pokemon_id = filter_input( INPUT_POST, 'pokemon_id');
@@ -300,9 +298,6 @@ final class Challenges extends AbstractModel {
         $input_title = filter_input( INPUT_POST, 'title');
         /** @var ?string $input_description */
         $input_description = filter_input( INPUT_POST, 'description');
-
-        // var_dump($input_pokemon_id);
-        // var_dump($input_question_id);
 
         /** @var bool $validate_user_id */
         $validate_user_id = $this->validateUserId( $errors, $user_id );

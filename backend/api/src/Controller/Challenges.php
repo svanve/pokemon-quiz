@@ -104,7 +104,7 @@ final class Challenges extends AbstractController {
         $errors = [];
         /** @var array $result */
         $result = [];
-    
+
         if ($this->isMethod( self::METHOD_POST) 
         && Authorize::authorizeToken( $errors, $result )
         && $this->ChallengeModel->write( $result['user_id'], $errors )) {

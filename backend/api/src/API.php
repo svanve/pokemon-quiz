@@ -15,7 +15,6 @@ final class API {
 
     public function __construct() {
         $this->request = $this->parseRequest();
-
     }
 
     public function run() : void {
@@ -26,7 +25,7 @@ final class API {
         header('Access-Control-Allow-Credentials: true');    
 
         if ( $_SERVER['REQUEST_METHOD'] === 'OPTIONS' ) {
-            $this->Controller->responseCode('200');
+            $this->responseCode(200);
         }    
 
         // URL auslesen
