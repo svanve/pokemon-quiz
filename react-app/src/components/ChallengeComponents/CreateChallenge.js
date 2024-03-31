@@ -1,11 +1,10 @@
 import React, {useEffect, useState, useContext} from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../helpers/Context';
 
 const CreateChallenge = ({mode, setModal, values}) => {
 
-    const { setScrollToTop, setCreate, create, setEdit } = useContext( Context );
+    const { setScrollToTop, setCreate, setEdit } = useContext( Context );
 
     const [ questions, setQuestions ] = useState([]);
     const [ pokemons, setPokemons ] = useState([]);    
@@ -90,17 +89,15 @@ const CreateChallenge = ({mode, setModal, values}) => {
 
         const token = localStorage.getItem( 'jwt' );
         const formData = new FormData();
-        
+
         for (const key in data) {
             formData.append( key, data[key] )
         }
-        
+
         fetch(`${process.env.REACT_APP_BACKEND_URI}/api/challenges/write`, {
             method: 'POST',
             headers: {
-                'authorization': token,
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
+                'authorization': token
             },
             body: formData
         })
