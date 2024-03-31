@@ -13,6 +13,7 @@ const CreateChallenge = ({mode, setModal, values}) => {
     const [ description, setDescription ] = useState('');
     const [ pokemon_id, setPokemon_id ] = useState(1);
     const [ question_id, setQuestion_id ] = useState(1);
+    const [ validationErrors, setValidationErrors ] = useState([]);
 
     const data = {
         title: title,
@@ -84,36 +85,42 @@ const CreateChallenge = ({mode, setModal, values}) => {
     }, [] )
 
     
-    function handleCreate( e ) {
+    async function handleCreate( e ) {
         e.preventDefault();
 
         const token = localStorage.getItem( 'jwt' );
+
         const formData = new FormData();
 
         for (const key in data) {
-            formData.append( key, data[key] )
+            formData.append( key, data[key] );
         }
 
-        fetch(`${process.env.REACT_APP_BACKEND_URI}/api/challenges/write`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/api/challenges/write`, {
             method: 'POST',
-            headers: {
-                'authorization': token
-            },
+            headers: { 'authorization': token },
             body: formData
         })
-        .then( res => {
-            res.json();
-        })
-        .then( (dt) => {
+
+        const resData = await response.json();
+
+        if ( resData.success ) {
+            
             setCreate(false);
-        })
-        .catch( err => {
-            console.log(err);
-        })        
+        } else {
+
+            let errArr = [];
+
+            for (const key in resData.errors) {
+                errArr.push(resData.errors[key][0]);
+            }
+
+            setValidationErrors([...errArr]);
+        }       
     }
 
 
-    function handleEdit(e) {
+    async function handleEdit(e) {
         e.preventDefault();
 
         const token = localStorage.getItem( 'jwt' );
@@ -123,9 +130,7 @@ const CreateChallenge = ({mode, setModal, values}) => {
             formData.append( key, data[key] )
         }
 
-        console.log(formData);
-
-        fetch( `${process.env.REACT_APP_BACKEND_URI}/api/challenges/update/${values.cid}`, {
+        const response = await fetch( `${process.env.REACT_APP_BACKEND_URI}/api/challenges/update/${values.cid}`, {
                 method: 'PUT',
                 headers: {
                     'authorization': token,
@@ -133,11 +138,20 @@ const CreateChallenge = ({mode, setModal, values}) => {
                 body: formData
             }
         )
-        .then( (res) => res.json() )
-        .then( () => {
+
+        const resData = await response.json();
+
+        if (resData.success) {
             setEdit(false);
-        })
-        .catch( (err) => console.log(err))
+        } else {
+            let errArr = [];
+
+            for (const key in resData.errors) {
+                errArr.push(resData.errors[key][0]);
+            }
+
+            setValidationErrors([...errArr]);
+        }
     }
     
 
@@ -181,6 +195,8 @@ const CreateChallenge = ({mode, setModal, values}) => {
                             })}
                         </select> 
                     </div>
+
+                    <small id="usernameHelp" className="form-text text-warning">{ validationErrors[0] }</small>
 
                     <div className="btn-wrapper">
                         {
