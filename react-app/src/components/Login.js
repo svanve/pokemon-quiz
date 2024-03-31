@@ -9,7 +9,7 @@ const Login = (props) => {
 
     const { setLoggedIn } = useContext( Context);
     const navigate = useNavigate();
-    const [ error, setError ] = useState('');
+    const [ validationError, setValidationError ] = useState('');
 
     const [ formdata, setFormdata ] = useState( {
         username: '',
@@ -22,7 +22,7 @@ const Login = (props) => {
         const formData = new FormData();
 
         for (const key in formdata) {
-            formData.append( key, formdata[key] )
+            formData.append( key, formdata[key] );
         }
 
         const response = await fetch( `${process.env.REACT_APP_BACKEND_URI}/api/user/login`, {
@@ -41,7 +41,7 @@ const Login = (props) => {
         } else {
             
             for (const key in resData.errors) {
-                setError( resData.errors[key][0]);
+                setValidationError( resData.errors[key][0] );
             }
         }
 
@@ -71,7 +71,7 @@ const Login = (props) => {
                             <input onChange={(e)=>setFormdata({...formdata, password: e.target.value})} value={formdata.password}  type="password" className="form-control" id="password" name="password" placeholder="Passwort"/>
                         </div>
 
-                        <small id="usernameHelp" className="form-text text-warning">{error}</small>
+                        <small id="usernameHelp" className="form-text text-warning">{validationError}</small>
                         
                         <div className="btn-wrapper">
                             <button className="start-btn btn btn-primary my-3">
