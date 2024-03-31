@@ -108,7 +108,6 @@ final class Challenges extends AbstractController {
         if ($this->isMethod( self::METHOD_POST) 
         && Authorize::authorizeToken( $errors, $result )
         && $this->ChallengeModel->write( $result['user_id'], $errors )) {
-            var_dump($result);
             $this->responseCode(201);
             $this->printJSON( ['success' => true, 'jwt' => Authorize::createToken( $result['user_id'] )] );
         } else {
