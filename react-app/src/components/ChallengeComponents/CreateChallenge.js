@@ -181,7 +181,7 @@ const CreateChallenge = ({mode, setModal, values}) => {
                         <select onChange={(e) => setPokemon_id(e.target.value)} value={pokemon_id} type="text" name="pokemon_id" id="challenge-pokemon-ip" className='form-select' aria-label="Default select example">
                         <option defaultValue disabled>Welches Pokémon soll herausgefordert werden?</option>
                             {pokemons.map( ( pokemon, index ) => {
-                                return <option value={pokemon.id} key={index} title={pokemon.name} onClick={(e) => setQuestion_id(pokemon.id)}>{pokemon.name}</option>;
+                                return <option value={pokemon.id} key={index} title={pokemon.name} onClick={(e) => setPokemon_id(pokemon.id)}>{pokemon.name}</option>;
                             })}
                         </select>
                     </div>
