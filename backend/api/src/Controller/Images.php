@@ -22,7 +22,7 @@ final class Images extends AbstractController {
         // && Authorize::authorizeToken( $errors, $result )
         && $this->ImagesModel->uploadImage( $errors, $result ) ) {
             $this->responseCode(200);
-            $this->printJSON( [ 'success' => true, 'result' => $result, /* 'jwt' => Authorize::createToken( $result['user_id'] ) */ ]);
+            $this->printJSON( [ 'success' => true, 'result' => $result, 'jwt' => Authorize::createToken( $result['user_id'] ) ]);
         } else {
             $this->responseCode(400);
             $this->printJSON( [ 'errors' => $errors ] );
@@ -41,7 +41,7 @@ final class Images extends AbstractController {
         // && Authorize::authorizeToken( $errors, $result )
         && $this->ImagesModel->getImagePath( $errors, $result, $image_id ) ) {
             $this->responseCode(200);
-            $this->printJSON( [ 'success' => true, 'result' => $result, /* 'jwt' => Authorize::createToken( $result['user_id'] ) */ ] );
+            $this->printJSON( [ 'success' => true, 'result' => $result, 'jwt' => Authorize::createToken( $result['user_id'] ) ] );
         } else {
             $this->responseCode(400);
             $this->printJSON( [ 'errors' => $errors ] );
