@@ -1,43 +1,46 @@
-<h1 style="text-align: center; font-size: 5rem; color: #44D7B6">PokéCrypt</h1>
+# A Pokemon Quiz Web Application
 
-<h2 style="text-align: center; margin-top: 3rem;"> Dokumentation zur Abgabe des Moduls WBD 5204 <br> - <b>Web Application</b> </h2>
+## An opportunity for fans to test their knowledge of the Pokémon game series.
 
-<div style="display: flex; justify-content: center;">
-  <img style="margin-top: 1.5rem;" src="./ash-sketch.svg" height="400"/>
+### Description
+
+// TODO Hi fellow developer and potential Pokémon fan. This is where... 
+- What your application does,
+- Why you used the technologies you used,
+- Some of the challenges you faced and features you hope to implement in the future.</div>
+
+<div style="">
+  <img style="margin-top: 1.5rem;" src="./ash-sketch.svg" height="200"/>
 </div>
-<br>
-
-> Autor: Silvan van Veen | Deadline: 05.04.2022 | SAE München 0921
-
-> **Bemerkung** Der Name "PokéCrypt" kommt von meinem Marketingkonzept (WBD5300), wo NFTs ins Spiel integriert wurden. In der effektiv entwickelten App ist das nicht der Fall.
-
-<br>
 
 ---
 
 ## 1. Verzeichnis
 
-- [1. Verzeichnis](#1-verzeichnis)
-- [2. Technologien](#2-technologien)
-- [3. Generelles](#3-generelles)
-  - [3.1. Backend](#31-backend)
-  - [3.2. Frontend](#32-frontend)
-- [4. Sicherheit](#4-sicherheit)
-- [5. Funktionalitäten](#5-funktionalitäten)
-  - [5.1. Account System](#51-account-system)
-  - [5.2. Registrierte versus Unregistrierte Nutzer](#52-registrierte-versus-unregistrierte-nutzer)
-  - [5.3. Spiellogik](#53-spiellogik)
-  - [5.4. Challenges](#54-challenges)
-  - [5.5. Pokémons](#55-pokémons)
-  - [5.6. PokéShop](#56-pokéshop)
-  - [5.7. Mein Profil](#57-mein-profil)
-- [6. Code-Struktur](#6-code-struktur)
-  - [6.1. Controller](#61-controller)
-  - [6.2. Model](#62-model)
-  - [6.3. View](#63-view)
-- [7. Datenbankstruktur](#7-datenbankstruktur)
-  - [7.1. Relationales Datenbank-Modell](#71-relationales-datenbank-modell)
-  - [7.2. Tabellen](#72-tabellen)
+- [A Pokemon Quiz Web Application](#a-pokemon-quiz-web-application)
+  - [An opportunity for fans to test their knowledge of the Pokémon game series.](#an-opportunity-for-fans-to-test-their-knowledge-of-the-pokémon-game-series)
+    - [Description](#description)
+  - [1. Verzeichnis](#1-verzeichnis)
+  - [2. Technologien](#2-technologien)
+  - [3. Generelles](#3-generelles)
+    - [3.1. Backend](#31-backend)
+    - [3.2. Frontend](#32-frontend)
+  - [4. Sicherheit](#4-sicherheit)
+  - [5. Funktionalitäten](#5-funktionalitäten)
+    - [5.1. Account System](#51-account-system)
+    - [5.2. Registrierte versus Unregistrierte Nutzer](#52-registrierte-versus-unregistrierte-nutzer)
+    - [5.3. Spiellogik](#53-spiellogik)
+    - [5.4. Challenges](#54-challenges)
+    - [5.5. Pokémons](#55-pokémons)
+    - [5.6. PokéShop](#56-pokéshop)
+    - [5.7. Mein Profil](#57-mein-profil)
+  - [6. Code-Struktur](#6-code-struktur)
+    - [6.1. Controller](#61-controller)
+    - [6.2. Model](#62-model)
+    - [6.3. View](#63-view)
+  - [7. Datenbankstruktur](#7-datenbankstruktur)
+    - [7.1. Relationales Datenbank-Modell](#71-relationales-datenbank-modell)
+    - [7.2. Tabellen](#72-tabellen)
 
 ---
 
