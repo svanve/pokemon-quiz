@@ -1,10 +1,9 @@
-@import '01-frameworks/index.scss';
+@import '~bootstrap/scss/bootstrap';
 
-@import '02-plugins/index.scss';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-@import '03-fonts/index.scss';
+@import 'fonts/index.scss';
 
 @import '04-base/index.scss';
 
 @import '05-modules/index.scss';
-
