@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import './styles/main.scss';
+
 import Challenges from './components/ChallengeComponents/Challenges';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login';
@@ -11,10 +13,7 @@ import Register from './components/RegisterComponents/Register';
 import StartOne from './components/StartOne';
 import StartTwo from './components/StartTwo';
 
-
-import './styles/main.scss';
 import {Context} from './helpers/Context';
-
 
 function App() {
 
