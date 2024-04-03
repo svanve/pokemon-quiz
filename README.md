@@ -1,6 +1,6 @@
 # A Pokemon Quiz Web Application
 
-## An opportunity for fans to test their knowledge of the Pokémon game series.
+## An opportunity for Pokémon fans to test their knowledge in the famous game series.
 
 ### Description
 
@@ -15,16 +15,16 @@
 
 ---
 
-## 1. Verzeichnis
+### 1. Verzeichnis
 
 - [A Pokemon Quiz Web Application](#a-pokemon-quiz-web-application)
-  - [An opportunity for fans to test their knowledge of the Pokémon game series.](#an-opportunity-for-fans-to-test-their-knowledge-of-the-pokémon-game-series)
+  - [An opportunity for Pokémon fans to test their knowledge in the famous game series.](#an-opportunity-for-pokémon-fans-to-test-their-knowledge-in-the-famous-game-series)
     - [Description](#description)
-  - [1. Verzeichnis](#1-verzeichnis)
-  - [2. Technologien](#2-technologien)
-  - [3. Generelles](#3-generelles)
-    - [3.1. Backend](#31-backend)
-    - [3.2. Frontend](#32-frontend)
+    - [1. Verzeichnis](#1-verzeichnis)
+    - [2. Technologien](#2-technologien)
+    - [3. Generelles](#3-generelles)
+      - [3.1. Backend](#31-backend)
+      - [3.2. Frontend](#32-frontend)
   - [4. Sicherheit](#4-sicherheit)
   - [5. Funktionalitäten](#5-funktionalitäten)
     - [5.1. Account System](#51-account-system)
@@ -44,22 +44,21 @@
 
 ---
 
-## 2. Technologien
+### 2. Technologien
 
-- Frontend: `React v17.0.2`, `React-Router-Dom v6.2.1`, `Bootstrap v5.1.3`, `SASS v1.45.1`
+- Frontend: `React v17.0.2`, `React-Router-Dom v6.2.1`, `Bootstrap v5.1.3`, `SASS v1.45.1`, `Fontawesome 5.15.4`
 - Backend: `PHP v8.0.17`, `Firebase JWT v5.4`, `Autoload PSR-4`
 - Webserver: `Apache v2.4.52`, `PHP v8.0.17`, `XAMPP v8.1.4-0`
 - Datenbank-Server: `MySQL v10.4.24-MariaDB`, `phpMyAdmin v5.1.3`
 - Betriebssystem: `Microsoft Windows 11 Home`
 
-> **Hinweis** Bootstrap habe ich lokal installiert und als Ordner in den MATERIAL Ordner reingezogen.
 ---
 
-## 3. Generelles
+### 3. Generelles
 
 Diese Web Applikation ist eine **Single Page Application** (***SPA***). Das heisst, das Frontend und Backend kommunizieren asynchron, von jeweils einer anderen `Origin` aus und benutzen dazu `HTTP Requests`. Der Webserver übernimmt nicht selbst die Funktion der Präsentation der Webseite, sondern stellt lediglich die benötigten Daten dazu zur Verfügung (Client Side Rendering).
 
-### 3.1. Backend
+#### 3.1. Backend
 
 Das Backend der App ist nach dem Prinzip **Model-View-Controller** (***MVC***) aufgebaut.
 
@@ -71,7 +70,7 @@ Im Verzeichnis ``<Dein Webspace>/api`` befindet sich die `.htaccess`, welche fü
 
 In der `<Dein Webspace>/api/config.php` kannst du die Verbindung zur Datenbank ändern. Das Backend wurde auf einem lokalen Server entwickelt.
 
-### 3.2. Frontend
+#### 3.2. Frontend
 
 Im Root-Verzeichnis des Frontends liegt die `.env` Konfigurationsdatei. Ändere hier die Backend-URI, bzw. die Serveradresse der API.
 
