@@ -1,29 +1,34 @@
 # A Pokemon Quiz Web Application
 
 ## An opportunity for Pokémon fans to test their knowledge in the famous game series.
-
-### Description
-
-// TODO Hi fellow developer and potential Pokémon fan. This is where... 
-- What your application does,
-- Why you used the technologies you used,
-- Some of the challenges you faced and features you hope to implement in the future.</div>
-
+Hi there, fellow developer and potential Pokémon fan.
 <div style="">
-  <img style="margin-top: 1.5rem;" src="./ash-sketch.svg" height="200"/>
+  <img style="margin-bottom: 1.5rem;" src="./ash-sketch.svg" height="200"/>
 </div>
+
+- **What does this application do?**
+  - Challenges Pokémon fans though little questions which they would have to answer to in a small amount of time.
+  - This is my final graduation project at SAE Institute Munich. The idea was to gain and proof knowledge in developing single-page-applications. At this point the app handles not all the functions which its marketing concept suggests. 
+  - The concept of the web app is: Winning challenges gives the user in-game money which he/she could use buying pokéballs which lead to get new pokémon. Pokémon with higher level would let you make more difficult challenges for the community.
+- **What technologies does it use and why?**
+  - Webserver: `Apache v2.4.52` as the webserver because it's free, popular and open source.
+  - Backend/API: `PHP v8.0.17` (in order to learn object oriented programming && was suggested by the lecturer)
+  - Frontend: `React v17.0.2` (in order to develop a single page application)
+  - Datenbank-Server: `MySQL v10.4.24-MariaDB` (mySQL is widely used, easy and quick to install) `phpMyAdmin v5.1.3` 
+- **Challenges**
+  - When developing locally I was held up by a head-breaking error in the preflight response from backend to frontend. Each cross-origin-request is preceded by a `preflight` or `OPTIONS request` checking if the HTTP methods and headers are valid according to the server policies. The server didn't allow me to have an `authorization header` (token validation) in the request. So in the backend I had to give green light to the `OPTIONS request` manually by returning <span style="color:green;">Status Code 200</span> in order to make the Auth process work. 
+
 
 ---
 
-### 1. Verzeichnis
+### Table of content
 
 - [A Pokemon Quiz Web Application](#a-pokemon-quiz-web-application)
   - [An opportunity for Pokémon fans to test their knowledge in the famous game series.](#an-opportunity-for-pokémon-fans-to-test-their-knowledge-in-the-famous-game-series)
-    - [Description](#description)
-    - [1. Verzeichnis](#1-verzeichnis)
-    - [2. Technologien](#2-technologien)
-    - [3. Generelles](#3-generelles)
-      - [3.1. Backend](#31-backend)
+    - [Table of content](#table-of-content)
+    - [How to install](#how-to-install)
+    - [How to use](#how-to-use)
+    - [Credits](#credits)
       - [3.2. Frontend](#32-frontend)
   - [4. Sicherheit](#4-sicherheit)
   - [5. Funktionalitäten](#5-funktionalitäten)
@@ -44,27 +49,40 @@
 
 ---
 
-### 2. Technologien
+### How to install
+BLABLABALBALB
+- Download zip of github repo
+  ```bash
+  git clone https://github.com/svanve/pokemon-quiz.git
+  ```
+- Installing `XAMPP v8.1.4-0` or `MAMP v89898989898989899`
+  - Donwload from here: LINK
+  - Download PHP 8 from here and save it in XY directory
+  - Chose PHP Version in MAMP/XAMPP GUI 
+    - Screenshot
+  - Press Webstart (previous Screenshot)
+- Moving files inside folder "backend" in to the `htdocs`, a subfolder in your MAMP/XAMPP file directory (yourUser/programs).
 
-- Frontend: `React v17.0.2`, `React-Router-Dom v6.2.1`, `Bootstrap v5.1.3`, `SASS v1.45.1`, `Fontawesome 5.15.4`
-- Backend: `PHP v8.0.17`, `Firebase JWT v5.4`, `Autoload PSR-4`
-- Webserver: `Apache v2.4.52`, `PHP v8.0.17`, `XAMPP v8.1.4-0`
-- Datenbank-Server: `MySQL v10.4.24-MariaDB`, `phpMyAdmin v5.1.3`
-- Betriebssystem: `Microsoft Windows 11 Home`
+### How to use
 
----
+> Username database: `root`
+> Passwort database: `root`
+- Test User Credentials
 
-### 3. Generelles
+Potential Problems:
+- DB user and pw
+- Casesensitivity MacOS (startOne.js etc.)
+- 
+### Credits
+- Julian Vogel (Head of Development, SAE Munich) (React Expert)
+- Philip Braunen (PHP expert)
+- <a href="https://github.com/tomniekerken">Tom Niekerken</a> (coding buddy)
 
-Diese Web Applikation ist eine **Single Page Application** (***SPA***). Das heisst, das Frontend und Backend kommunizieren asynchron, von jeweils einer anderen `Origin` aus und benutzen dazu `HTTP Requests`. Der Webserver übernimmt nicht selbst die Funktion der Präsentation der Webseite, sondern stellt lediglich die benötigten Daten dazu zur Verfügung (Client Side Rendering).
-
-#### 3.1. Backend
 
 Das Backend der App ist nach dem Prinzip **Model-View-Controller** (***MVC***) aufgebaut.
 
-> Username Datenbank: `root`
->
-> Passwort Datenbank: `root`
+> Username database: `root`
+> Passwort database: `root`
 
 Im Verzeichnis ``<Dein Webspace>/api`` befindet sich die `.htaccess`, welche für das Umschreiben der URL zuständig ist. Sie gibt die Parameter aus der Request-URL weiter an die ``index.php``. Diese wiederum ruft die Klasse `API.php` auf, welche aufgrund der Parameter den jeweils entsprechenden Controller aufruft mit der angefragten Methode und allfälligem Argument.
 
