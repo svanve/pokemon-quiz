@@ -7,9 +7,9 @@ Hi there, fellow developers and potential Pokémon fans.
 </div>
 
 **What does this application do?**
-  - Challenges Pokémon fans though little questions which they would have to answer to in a small amount of time.
-  - This is my final graduation project at SAE Institute Munich. The idea was to gain and proof knowledge in developing single-page-applications. At this point the app handles not all the functions which its marketing concept suggests. 
-  - The concept of the web app is as follows: by winning challenges, the user receives money in the game, which they can use to buy Pokéballs to obtain new Pokémon. Higher level Pokémon allow more difficult challenges to be set for the community. The more difficult the challenge, the higher the monetary reward.
+  - Challenges Pokémon fans though little questions which they would have to answer to in a small amount of time (at the moment the few exisiting questions are only symbolic placeholders).
+  - This is my final graduation project at SAE Institute Munich. The idea was to gain and proof knowledge in developing single-page-applications.
+  - Concept: by winning challenges, the user receives money in the game, which they can use to buy Pokéballs to obtain new Pokémon. Higher level Pokémon allow more difficult challenges to be set for the community. The more difficult the challenge, the higher the monetary reward.
 
 **What technologies does it use and why?**
   - Webserver: `Apache v2.4.52` as the webserver because it's free, popular and open source.
@@ -19,7 +19,7 @@ Hi there, fellow developers and potential Pokémon fans.
 <br/>
 
 ### How to install
-To ensure that the project functions properly, it is necessary to install either MAMP or XAMPP, to import the project's database and to start both the local servers of frontend and backend.
+To ensure that the project functions properly, it is necessary to install either MAMP or XAMPP, to import the project's database and to start both the local servers for frontend and backend.
 
 MAMP (Mac, Apache, MySQL, PHP) and XAMPP (cross-platform Apache, MariaDB, PHP, Perl) are popular choices for setting up local development environments. They provide all the necessary components, including Apache web server, MySQLdatabase server, and PHP scripting language.
 
@@ -42,10 +42,24 @@ Once installed, you can start the local server environment, and the project will
   - Import database `"db.zip"` from this project (folder `"db_to_import"`) using PhpMyAdmin. 
     - Go see this quick and easy [step-by-step tutorial](https://help.one.com/hc/en-us/articles/115005588189-How-do-I-import-a-database-to-phpMyAdmin) if you need some guidance.
 ##### Start backend
-  - Move all the files from folder `"backend"` to `htdocs`, a subfolder in your MAMP/XAMPP file directory (`<youruser>/programs/`).
-  - Press Start in MAMP/XAMPP
+  The backend uses a package manager called "Composer". Make sure you [install Composer](https://getcomposer.org/download/) first. It allows us to install the required autoloader.
+
+  - MAMP: press `start` in the top right corner.
+  - XAMPP: press `start` twice. Once next to Apache and once next MySQL.
+  - Move all the files from folder `"backend"` to `"htdocs"`, a subfolder in your MAMP/XAMPP file directory (`~/programs/mamp/htdocs` or `%USERPROFILE%\programs\xampp\htdocs`).
+  - Open the `htdocs`folder in your favorite IDE and type into your terminal:
+    ```bash
+    cd api
+    ```
+  - Then type:
+    ```bash
+    composer i
+    ```
+  Now the server for both the backend and the database are up and running.
+
 ##### Start Frontend
-  - Move from root to `"react-app"` (CLI):
+  In order to be able to use the frontend you should have installed Node.js which offers NPM, its famous package manager. 
+  - In the root folder of the clone change directory to `"react-app"` where the `package.json` is located:
   ```bash
   cd react-app
   ```
@@ -56,23 +70,23 @@ Once installed, you can start the local server environment, and the project will
   - Start the development server:
   ```bash
   npm start
-  ```
+  ``` 
 <br/>
 
 ### How to use
 
-> Username database: `root`
-> Passwort database: `root`
-- Test User Credentials
+- Play around with the app
+  - Register and create your own user. No worries, since you are working locally you store the hashed credentials in you own database.
+  - Create a challenge through the turquoise plus symbol (top right corner), so others would be able to take it.
+  - Take a challenge. Press on `"Challenges"`in the menu and find out what user with what pokémon you want to challenge.
+  - Edit a challenge of yours. In order to do so set the filter in `"Challenges"` to `"Meine Challenges"`.
 
-Potential Problems:
-- DB user and pw
-In the `<your directory>/api/config.php` you are able to change the connection to the database.
-- Casesensitivity MacOS (startOne.js etc.)
-<br/>
+### Potential Problems:
+- Only for Windows users: You should change the password in the `/backend/api/config.php` from `"root"` to an empty string `""` in order to be able to access the MySQL database.
+- Case sensitivity: I think this problem only concerns Mac users. When starting the frontend it does throw errors not being able to find a few files. Just rename the corresponding files (e.g. startOne.js) or folders (e.g. iconComponents) so that they begin with uppercase letters. Otherwise `App.js` can't find these components.
 
 ### Credits
-- Julian Vogel (Head of Development, SAE Munich) (React Expert)
+- Julian Vogel (Head of Development, SAE Munich) (React expert)
 - Philip Braunen (PHP expert)
 - <a href="https://github.com/tomniekerken">Tom Niekerken</a> (coding buddy)
 
