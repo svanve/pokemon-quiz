@@ -1,67 +1,63 @@
 # A Pokemon Quiz Web Application
 
 ## An opportunity for Pokémon fans to test their knowledge in the famous game series.
-Hi there, fellow developer and potential Pokémon fan.
+Hi there, fellow developers and potential Pokémon fans.
 <div style="">
   <img style="margin-bottom: 1.5rem;" src="./ash-sketch.svg" height="200"/>
 </div>
 
-- **What does this application do?**
+**What does this application do?**
   - Challenges Pokémon fans though little questions which they would have to answer to in a small amount of time.
   - This is my final graduation project at SAE Institute Munich. The idea was to gain and proof knowledge in developing single-page-applications. At this point the app handles not all the functions which its marketing concept suggests. 
-  - The concept of the web app is: Winning challenges gives the user in-game money which he/she could use buying pokéballs which lead to get new pokémon. Pokémon with higher level would let you make more difficult challenges for the community.
-- **What technologies does it use and why?**
+  - The concept of the web app is as follows: by winning challenges, the user receives money in the game, which they can use to buy Pokéballs to obtain new Pokémon. Higher level Pokémon allow more difficult challenges to be set for the community. The more difficult the challenge, the higher the monetary reward.
+
+**What technologies does it use and why?**
   - Webserver: `Apache v2.4.52` as the webserver because it's free, popular and open source.
   - Backend/API: `PHP v8.0.17` (in order to learn object oriented programming && was suggested by the lecturer)
   - Frontend: `React v17.0.2` (in order to develop a single page application)
-  - Datenbank-Server: `MySQL v10.4.24-MariaDB` (mySQL is widely used, easy and quick to install) `phpMyAdmin v5.1.3` 
-- **Challenges**
-  - When developing locally I was held up by a head-breaking error in the preflight response from backend to frontend. Each cross-origin-request is preceded by a `preflight` or `OPTIONS request` checking if the HTTP methods and headers are valid according to the server policies. The server didn't allow me to have an `authorization header` (token validation) in the request. So in the backend I had to give green light to the `OPTIONS request` manually by returning <span style="color:green;">Status Code 200</span> in order to make the Auth process work. 
-
-
----
-
-### Table of content
-
-- [A Pokemon Quiz Web Application](#a-pokemon-quiz-web-application)
-  - [An opportunity for Pokémon fans to test their knowledge in the famous game series.](#an-opportunity-for-pokémon-fans-to-test-their-knowledge-in-the-famous-game-series)
-    - [Table of content](#table-of-content)
-    - [How to install](#how-to-install)
-    - [How to use](#how-to-use)
-    - [Credits](#credits)
-      - [3.2. Frontend](#32-frontend)
-  - [4. Sicherheit](#4-sicherheit)
-  - [5. Funktionalitäten](#5-funktionalitäten)
-    - [5.1. Account System](#51-account-system)
-    - [5.2. Registrierte versus Unregistrierte Nutzer](#52-registrierte-versus-unregistrierte-nutzer)
-    - [5.3. Spiellogik](#53-spiellogik)
-    - [5.4. Challenges](#54-challenges)
-    - [5.5. Pokémons](#55-pokémons)
-    - [5.6. PokéShop](#56-pokéshop)
-    - [5.7. Mein Profil](#57-mein-profil)
-  - [6. Code-Struktur](#6-code-struktur)
-    - [6.1. Controller](#61-controller)
-    - [6.2. Model](#62-model)
-    - [6.3. View](#63-view)
-  - [7. Datenbankstruktur](#7-datenbankstruktur)
-    - [7.1. Relationales Datenbank-Modell](#71-relationales-datenbank-modell)
-    - [7.2. Tabellen](#72-tabellen)
-
----
+  - Database server: `MySQL v10.4.24-MariaDB` (mySQL is widely used, easy and quick to install) `phpMyAdmin v5.1.3` 
+<br/>
 
 ### How to install
-BLABLABALBALB
-- Download zip of github repo
+To ensure that the project functions properly, it is necessary to install either MAMP or XAMPP, to import the project's database and to start both the local servers of frontend and backend.
+
+MAMP (Mac, Apache, MySQL, PHP) and XAMPP (cross-platform Apache, MariaDB, PHP, Perl) are popular choices for setting up local development environments. They provide all the necessary components, including Apache web server, MySQLdatabase server, and PHP scripting language.
+
+Once installed, you can start the local server environment, and the project will be ready to run on your local machine.
+
+##### Clone the project (CLI):
   ```bash
   git clone https://github.com/svanve/pokemon-quiz.git
   ```
-- Installing `XAMPP v8.1.4-0` or `MAMP v89898989898989899`
-  - Donwload from here: LINK
-  - Download PHP 8 from here and save it in XY directory
-  - Chose PHP Version in MAMP/XAMPP GUI 
-    - Screenshot
-  - Press Webstart (previous Screenshot)
-- Moving files inside folder "backend" in to the `htdocs`, a subfolder in your MAMP/XAMPP file directory (yourUser/programs).
+
+##### Install MAMP or XAMPP
+  - MacOS: [MAMP](https://www.mamp.info/de/mamp/mac/)
+  - Windows: [XAMPP](https://www.apachefriends.org/de/download.html)
+  - Make sure PHP Version 8 is used
+##### Import database
+  - Go to PhpMyAdmin: 
+    - MAMP: press `WebStart`
+    - XAMPP: press `Admin` button next to MySQL
+  - Create new database named `"pokemon_app"` (press tab "databases")
+  - Import database `"db.zip"` from this project (folder `"db_to_import"`) using PhpMyAdmin. 
+    - Go see this quick and easy [step-by-step tutorial](https://help.one.com/hc/en-us/articles/115005588189-How-do-I-import-a-database-to-phpMyAdmin) if you need some guidance.
+##### Start backend
+  - Move all the files from folder `"backend"` to `htdocs`, a subfolder in your MAMP/XAMPP file directory (`<youruser>/programs/`).
+  - Press Start in MAMP/XAMPP
+##### Start Frontend
+  - Move from root to `"react-app"` (CLI):
+  ```bash
+  cd react-app
+  ```
+  - Install all the packages needed to be able to run the development server:
+  ```bash
+  npm i
+  ```
+  - Start the development server:
+  ```bash
+  npm start
+  ```
+<br/>
 
 ### How to use
 
@@ -71,12 +67,21 @@ BLABLABALBALB
 
 Potential Problems:
 - DB user and pw
+In the `<your directory>/api/config.php` you are able to change the connection to the database.
 - Casesensitivity MacOS (startOne.js etc.)
-- 
+<br/>
+
 ### Credits
 - Julian Vogel (Head of Development, SAE Munich) (React Expert)
 - Philip Braunen (PHP expert)
 - <a href="https://github.com/tomniekerken">Tom Niekerken</a> (coding buddy)
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 
 Das Backend der App ist nach dem Prinzip **Model-View-Controller** (***MVC***) aufgebaut.
@@ -86,7 +91,6 @@ Das Backend der App ist nach dem Prinzip **Model-View-Controller** (***MVC***) a
 
 Im Verzeichnis ``<Dein Webspace>/api`` befindet sich die `.htaccess`, welche für das Umschreiben der URL zuständig ist. Sie gibt die Parameter aus der Request-URL weiter an die ``index.php``. Diese wiederum ruft die Klasse `API.php` auf, welche aufgrund der Parameter den jeweils entsprechenden Controller aufruft mit der angefragten Methode und allfälligem Argument.
 
-In der `<Dein Webspace>/api/config.php` kannst du die Verbindung zur Datenbank ändern. Das Backend wurde auf einem lokalen Server entwickelt.
 
 #### 3.2. Frontend
 
