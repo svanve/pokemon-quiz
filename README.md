@@ -12,13 +12,13 @@ Hi there, fellow developers and potential Pokémon fans.
   - Concept: by winning challenges, the user receives money in the game, which they can use to buy Pokéballs to obtain new Pokémon. Higher level Pokémon allow more difficult challenges to be set for the community. The more difficult the challengeyou successfully take, the higher the monetary reward.
 
 **What technologies does it use and why?**
-  - Backend/API: `PHP v8.0.17`, so that I learn how to write an object oriented backend.
-  - Frontend: `React v17.0.2`, in order to develop a single page application and to be manipulating a virtual DOM based on user interactions or state changes (Client Rendering).
+  - Backend/API: `PHP`, so that I learn how to write an object oriented backend.
+  - Frontend: `React`, in order to develop a single page application and to be manipulating a virtual DOM based on user interactions or state changes (Client Rendering).
   - Styling: `Bootstrap` and `SCSS` because it's quick and easy to use.
   - `MAMP` comes with: 
-    - Webserver: `Apache v2.4.52`, popular and open source
-    - Database server: `MySQL v10.4.24-MariaDB`, widely used and easy
-    - Database management tool: `phpMyAdmin v5.1.3`.
+    - Webserver: `Apache `, popular and open source
+    - Database server: `MySQL`, widely used and easy
+    - Database management tool: `phpMyAdmin`.
 <br/>
 
 ### How to install
