@@ -37,6 +37,8 @@
     ]
   },
   "devDependencies": {
+    "loader-utils": "^3.2.1",
+    "minimist": "^1.2.6",
     "sass": "^1.45.1"
   }
 }
