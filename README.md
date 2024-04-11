@@ -83,10 +83,13 @@ Now you should be all set to use the web application.
 ### How to use
 
 - Play around with the app
-  - Register and create your own user. No worries, since you are working locally you store the hashed credentials in your own database.
+  - Login as a Test User with the following credentials:
+    >Username: `User1111`
+    >Password: `User1111!`
   - Create a challenge through the turquoise plus symbol (top right corner), so others would be able to take it.
   - Take a challenge. Press on `"Challenges"`in the menu and find out what user with what pokémon you want to challenge.
   - Edit a challenge of yours. In order to do so set the filter in `"Challenges"` to `"Meine Challenges"`.
+  - Register: Of course you are allowed to make your own User as well. Logout and press the button `"Registrieren"`. You won't see any own pokémon in this case since there is no logic for getting new pokémon yet. (No worries, since you are working locally you store the hashed credentials in your own database.) 
 
 ### Potential Problems:
 - Case sensitivity: I think this problem only concerns Mac users. When starting the frontend it does throw errors not being able to find a few files. Just rename the corresponding files (e.g. startOne.js) or folders (e.g. iconComponents) so that they begin with uppercase letters. Otherwise `App.js` can't find these components.
