@@ -5,11 +5,10 @@ import Menubar from './Menubar';
 import PlusIcon from '../IconComponents/PlusIcon';
 
 import { Context } from '../../helpers/Context';
-import { logout } from '../../helpers/Helpers';
 
 const Header = ({pageTitle}) => {
 
-    const { create, setCreate, edit, setEdit, setLoggedIn } = useContext(Context);
+    const { create, setCreate, edit, setEdit, setLoggedIn, logout } = useContext(Context);
     const navigate = useNavigate();
 
     return (

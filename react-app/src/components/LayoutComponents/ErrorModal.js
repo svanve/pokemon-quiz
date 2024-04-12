@@ -2,11 +2,10 @@ import { React, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../helpers/Context';
-import { logout } from '../../helpers/Helpers';
 
 const ErrorModal = (props) => {
 
-    const { setError, setLoggedIn, loggedIn } = useContext(Context);
+    const { setError, setLoggedIn, loggedIn, logout } = useContext(Context);
     const navigate = useNavigate();
 
     useEffect( () => {
@@ -16,7 +15,7 @@ const ErrorModal = (props) => {
         } catch (error) {
             console.error('Beim Logout im Error Modal ist etwas schiefgelaufen.');
         }
-    }, [ setLoggedIn, loggedIn ])
+    }, [ setLoggedIn, loggedIn, logout ])
 
     return (
         <>
@@ -33,7 +32,7 @@ const ErrorModal = (props) => {
                     } 
                 </div>
                 <div className="modal-footer">
-                        <button className="btn btn-primary w-100" onClick = {() => {navigate('/login'); setError({});}}>
+                        <button className="btn btn-primary w-100" onClick = { () => {navigate('/login'); setError({});} }>
                             <i className="fas fa-undo-alt me-2"></i>
                             <span className="">Zum Login</span>
                         </button>
