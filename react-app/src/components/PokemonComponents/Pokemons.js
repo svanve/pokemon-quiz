@@ -48,7 +48,7 @@ const Pokemons = () => {
         <>
             <div className="page-wrapper" onScroll={(e) => handleTopBtn(e)}>
                 
-                <Header pageTitle="Pokémons"/>                
+                <Header pageTitle="Pokémon"/>                
                 <main>
                     <div className="content-view">
 

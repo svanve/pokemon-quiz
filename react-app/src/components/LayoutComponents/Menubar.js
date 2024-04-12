@@ -16,7 +16,7 @@ const Menubar = (props) => {
                 <div className="menu-option--icon">
                     <i className='fas fa-dragon'></i>
                 </div>
-                <span className="menu-option--label">Pokémons</span>
+                <span className="menu-option--label">Pokémon</span>
             </NavLink>
             <NavLink to='/pokeshop' className="menu-option">
                 <div className="menu-option--icon">
