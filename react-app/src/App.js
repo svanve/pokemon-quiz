@@ -14,6 +14,7 @@ import StartOne from './components/StartOne';
 import StartTwo from './components/StartTwo';
 
 import {Context} from './helpers/Context';
+import {logout} from './helpers/Helpers';
 
 function App() {
 
@@ -36,7 +37,7 @@ function App() {
     <Router>
       <div className="content">
 
-          <Context.Provider value={{ create, setCreate, edit, setEdit, topBtn, setTopBtn, scrollToTop, setScrollToTop, handleTopBtn, loggedIn, setLoggedIn, error, setError }}>
+          <Context.Provider value={{ create, setCreate, edit, setEdit, topBtn, setTopBtn, scrollToTop, setScrollToTop, handleTopBtn, logout, loggedIn, setLoggedIn, error, setError }}>
               <Routes>
                   <Route path="/" element={<StartOne/>} />
                   <Route path="/start" element={<StartTwo/>} />
