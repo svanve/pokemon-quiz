@@ -38,17 +38,16 @@ const Challenges = (props) => {
                 `${process.env.REACT_APP_BACKEND_URI}/api/challenges/${filter}/${sort}`, 
                 { headers: {'authorization': token} }
             )
-                .then(response => response.json())
-                .then(data => {
-                    if(data.errors) {
-                        setError(data.errors);
-                    } else {
-                        const dataArr = Object.values(data.result);
-                        setData(dataArr);
-                    }
-                })
-            }
-            
+            .then(response => response.json())
+            .then(data => {
+                if(data.errors) {
+                    setError(data.errors);
+                } else {
+                    const dataArr = Object.values(data.result);
+                    setData(dataArr);
+                }
+            })
+        }
         
         fetchChallenges();
 
