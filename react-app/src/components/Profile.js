@@ -12,6 +12,7 @@ const Profile = () => {
     const { create, setModal, error, setError } = useContext(Context);
     const [ user, setUser ] = useState([]);
     const [ challengeNumber, setChallengeNumber ] = useState(0);
+    const [ pokemonNumber, setPokemonNumber ] = useState(0);
 
     const imgStyle = {
         width: '100%',
@@ -57,9 +58,25 @@ const Profile = () => {
                 }
             })
         }
+        
+        const fetchPokemons = async () => {
+            fetch (
+                `${process.env.REACT_APP_BACKEND_URI}/api/pokemons/getPokemons`,
+                { headers: {'authorization': token} }
+            )
+            .then( response => response.json() )
+            .then( data => {
+                if (data.errors) {
+                    setError(data.errors);
+                } else {
+                    setPokemonNumber(data.result.length);
+                }
+            })
+        }
 
         fetchUserData();
         fetchChallenges();
+        fetchPokemons();
 
     }, [ setError ])
 
@@ -82,9 +99,15 @@ const Profile = () => {
                                     <div className="profilecard-image-wrap">
                                         <div className="profilecard-image" style={imgStyle}></div>
                                     </div>
-                                    <div className="profilecard-stats">
-                                        <i>{challengeNumber}</i>
-                                        <span>Anzahl Challenges</span>
+                                    <div className="profilecard-stats col-12 align-items-center d-flex flex-column flex-lg-row justify-content-lg-center me-lg-1">
+                                        <div className="profilecard-number col-2 me-lg-2">
+                                            <i>{challengeNumber}</i>
+                                            <span>Challenges</span>
+                                        </div>
+                                        <div className="profilecard-number col-2 ms-lg-2">
+                                            <i>{pokemonNumber}</i>
+                                            <span>Pokémon</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="profilecard-right col-12 col-sm-6">
