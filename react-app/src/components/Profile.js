@@ -4,11 +4,14 @@ import { Context } from '../helpers/Context';
 
 import CreateChallenge from './ChallengeComponents/CreateChallenge';
 import Header from './LayoutComponents/Header';
+import BlackDropback from './LayoutComponents/BlackDropback';
+import ErrorModal from './LayoutComponents/ErrorModal';
 
 const Profile = () => {
 
-    const { create, setModal } = useContext(Context);
+    const { create, setModal, error, setError } = useContext(Context);
     const [ user, setUser ] = useState([]);
+    const [ challengeNumber, setChallengeNumber ] = useState(0);
 
     const imgStyle = {
         width: '100%',
@@ -23,19 +26,42 @@ const Profile = () => {
     useEffect( () => {
         const token = localStorage.getItem( 'jwt' );
 
-        // get Users Data
-        fetch( `${process.env.REACT_APP_BACKEND_URI}/api/user/getProfile`, {
-            headers: {
-                'authorization': token
-            }
-        })
-            .then( (res) => res.json())
-            .then( (dt) => {
-                const u = Object.values(dt.result);
-                setUser(u[0]);
+        const fetchUserData = async () => {
+
+            return fetch( 
+                `${process.env.REACT_APP_BACKEND_URI}/api/user/getProfile`, 
+                { headers: {'authorization': token} }
+                )
+            .then( (response) => response.json())
+            .then( (data) => {
+                if (data.errors) {
+                    setError(data.errors);
+                } else {
+                    const u = Object.values(data.result);
+                    setUser(u[0]);
+                }
             })
-            .catch( (err) => console.log(err))
-    }, [])
+        }
+
+        const fetchChallenges = async () => {
+            fetch (
+                `${process.env.REACT_APP_BACKEND_URI}/api/challenges/getMine`,
+                { headers: {'authorization': token} }
+            )
+            .then( response => response.json() )
+            .then( data => {
+                if (data.errors) {
+                    setError(data.errors);
+                } else {
+                    setChallengeNumber(data.result.length);
+                }
+            })
+        }
+
+        fetchUserData();
+        fetchChallenges();
+
+    }, [ setError ])
 
     return (
         <>
@@ -47,6 +73,8 @@ const Profile = () => {
 
                         {create ? <CreateChallenge mode="create" setModal={setModal}></CreateChallenge> : <></>}
 
+                        {error.jwt ? <> <ErrorModal errors={error}/><BlackDropback/> </> : <></>}
+
                         <div className="card row profile-card mt-2">
                             <div className="card-body profilecard-body col-12">
 
@@ -55,7 +83,7 @@ const Profile = () => {
                                         <div className="profilecard-image" style={imgStyle}></div>
                                     </div>
                                     <div className="profilecard-stats">
-                                        <i>43</i>
+                                        <i>{challengeNumber}</i>
                                         <span>Anzahl Challenges</span>
                                     </div>
                                 </div>
