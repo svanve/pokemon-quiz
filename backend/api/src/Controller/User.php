@@ -10,6 +10,9 @@ use WBD5204\Session;
 
 final class User extends AbstractController {
 
+    public $user;
+    public $ImagesModel;
+
     public function __construct() {
         $this->user = new UserModel();
         $this->ImagesModel = new ImagesModel();
