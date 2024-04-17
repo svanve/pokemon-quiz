@@ -26,6 +26,7 @@ mv backend/* /Applications/MAMP/htdocs/
 
 composer i --working-dir=/Applications/MAMP/htdocs/api/
 
+# Start react dev server
 cd react-app
 npm i
 npm start
