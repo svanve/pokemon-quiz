@@ -24,9 +24,9 @@ Hi there, fellow developers and potential Pokémon fans.
 ### How to install
 To ensure that the project works properly, it is necessary to install either MAMP or XAMPP, to import the project's database and to start both the local servers for frontend and backend.
 
-MAMP (Mac, Apache, MySQL, PHP) and XAMPP (cross-platform Apache, MariaDB, PHP, Perl) are popular choices for setting up local development environments. They provide all the necessary components, including Apache web server, MySQLdatabase server, and PHP scripting language.
+MAMP (Mac, Apache, MySQL, PHP) and XAMPP (cross-platform Apache, MariaDB, PHP, Perl) are popular choices for setting up local development environments. They provide all the necessary components, including Apache web server, MySQL database server, and PHP scripting language.
 
-Once installed, you can start the local server environment, and the project will be ready to run on your local machine.
+*Alternatively for Mac users only: Run the script `"install-macos.sh"`. It requires you to have `Homebrew` installed. If successful you can skip the whole installation guide and jump right to the next section: [How to use](#how-to-use).*
 
 #### Clone the project (CLI):
   ```bash
@@ -97,4 +97,5 @@ Now you should be all set to use the web application.
 ### Credits
 - Julian Vogel (Head of Development, SAE Munich) (React expert)
 - Philip Braunen (PHP expert)
-- <a href="https://github.com/tomniekerken">Tom Niekerken</a> (coding buddy)
+- [Tom Niekerken](https://github.com/tomniekerken) (student and coding buddy)
+- [Stefan Voegeli](https://github.com/stefanvoegelisrf) (friend and coding buddy)
